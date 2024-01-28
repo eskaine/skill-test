@@ -318,7 +318,7 @@ function Wallet() {
       
 
 
-      <WalletLoadingModal show={stopMode} />
+      {/* <WalletLoadingModal show={stopMode} /> */}
 
 
 
