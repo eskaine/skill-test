@@ -250,13 +250,13 @@ class UserService {
             return {response:false, message:"This Email already in use", data:null}
         }
         //check email verification
-        let verifier = await EmailVerifyModel.findOne({email:rawData.email});
-        if (!verifier) {
-            return {response:false, message:"Please receive and resend the Email verification code.", data:null}
-        }
-        if (verifier.verify_code !== rawData.email_verify) {
-            return {response:false, message:"Email verification code is wrong.", data:null}
-        }
+        // let verifier = await EmailVerifyModel.findOne({email:rawData.email});
+        // if (!verifier) {
+        //     return {response:false, message:"Please receive and resend the Email verification code.", data:null}
+        // }
+        // if (verifier.verify_code !== rawData.email_verify) {
+        //     return {response:false, message:"Email verification code is wrong.", data:null}
+        // }
         //check invite code
         if (parseInt(rawData.invite_code) !== 0) {
             let inviter = await UserModel.findOne({id:parseInt(rawData.invite_code)});
@@ -282,7 +282,7 @@ class UserService {
         await ManageUserModel.create({email:registerData.email, have_wallet:false, wallet_address:""});
         const subject = i18n.__({phrase: "MGL Exchange: Account Created Sucessfully", locale: rawData.locale || "En"})
         const body = i18n.__({phrase: "Your MGL Exchange account has been created sucessfully. Thank you.", locale: rawData.locale || "En"});
-        emailService.deliverEmail(rawData.email, subject, body);
+        // emailService.deliverEmail(rawData.email, subject, body);
         
         return {response:true, message:"Success", data:null}
     };

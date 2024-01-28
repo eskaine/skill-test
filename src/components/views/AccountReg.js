@@ -57,7 +57,7 @@ function AccountReg(props) {
               console.log("validateFile")
               axios.post(serverUrl+"users/signup",{
                 email:email,
-                email_verify:verificationCode,
+                // email_verify:verificationCode,
                 password:password,
                 confirm_password:password,
                 country:props.country.title,
@@ -122,7 +122,7 @@ function AccountReg(props) {
               className=" rounded-lg  bg-gray-200 text-black "
               onChange={(e)=>setEmail(e.target.value)}/>
             </Form.Item>
-            <Form.Item
+            {/* <Form.Item
               name="Verification"
               rules={[
                 { required: true, message: t('Please input your E-mail Verification Code!') },
@@ -134,7 +134,7 @@ function AccountReg(props) {
               suffix={<a onClick={()=>hasErrors(form.getFieldsError())}  className="bg-gray-800 text-md  text-white  rounded-xl py-1 px-4">{t("Send")}</a>} 
               className="rounded-lg  bg-gray-200"
               onChange={(e)=>setVerificationCode(e.target.value)}/>
-            </Form.Item>
+            </Form.Item> */}
 
             <Form.Item
             validateTrigger = "onBlur"
